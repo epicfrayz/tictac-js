@@ -1,0 +1,36 @@
+* {
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.app {
+	width: 649px;
+	height: 480px;
+
+	border: 2px solid #000;
+
+	display: flex;
+	flex-wrap: wrap;
+}
+.app_block {
+	border: 2px solid #000;
+	width: 33.333333%;
+	height: 160px;
+	cursor: pointer;
+
+	font-size: 60px;
+	font-family: sans-serif;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.app_block.active {
+	cursor: default;
+}
