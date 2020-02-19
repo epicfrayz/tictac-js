@@ -4,8 +4,13 @@ var game = true;
 
 for (var i = 0; i < items.length; i++) {
 	items[i].addEventListener("click", function() {
-		
+		var collecion = document.querySelectorAll(".app_block:not(.active)");
+		if(collecion.length == 1) {
+			console.log(123);
+			exit({win: "other"});
+		}
 		if( !this.classList.contains("active") ){
+
 			if( movePlayer) {
 				if(this.innerHTML == "") {
 					this.classList.add("active");
@@ -36,6 +41,7 @@ for (var i = 0; i < items.length; i++) {
 function botMove() {
 	// чисто на рандоме
 	var items = document.querySelectorAll(".app_block:not(.active)");
+
 	var step = getRandomInt(items.length);
 
 	items[ step ].innerHTML = "0";
@@ -49,6 +55,8 @@ function botMove() {
 	}
 
 	movePlayer = !movePlayer;
+
+
 }
 
 function getRandomInt(max) {
