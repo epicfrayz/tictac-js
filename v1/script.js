@@ -14,6 +14,7 @@ for (var i = 0; i < items.length; i++) {
 			if( movePlayer) {
 				if(this.innerHTML == "") {
 					this.classList.add("active");
+					this.classList.add("active_x");
 					this.innerHTML = "x"
 				}
 
@@ -46,6 +47,7 @@ function botMove() {
 
 	items[ step ].innerHTML = "0";
 	items[ step ].classList.add("active");
+	items[ step ].classList.add("active_o");
 
 	var result = checkMap();
 	if( result.val) {
