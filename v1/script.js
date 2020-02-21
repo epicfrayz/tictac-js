@@ -1,23 +1,32 @@
-var items = document.getElementsByClassName("app_block");
-var movePlayer = true;
-var game = true;
+var items = document.getElementsByClassName("app_block"); 	// Коллекция элементов
+var movePlayer = true;										// Ход игрока
+var game = true;											// состояние игры
 
+
+// Перебираем все элементы и назначаем событие клик на ячейку.
 for (var i = 0; i < items.length; i++) {
 	items[i].addEventListener("click", function() {
 		var collecion = document.querySelectorAll(".app_block:not(.active)");
+
+		// Проверка на ничью
 		if(collecion.length == 1) {
-			console.log(123);
 			exit({win: "other"});
 		}
+
+		// проверка на значение внутри ячейки
 		if( !this.classList.contains("active") ){
 
+			// ели ходит игрок
 			if( movePlayer) {
+
+				// елс иячейка свободна
 				if(this.innerHTML == "") {
+					// занять ячейку
 					this.classList.add("active");
 					this.classList.add("active_x");
 					this.innerHTML = "x"
 				}
-
+				// проверка ячеек и выход
 				var result = checkMap();
 				if( result.val) {
 					game = false;
@@ -29,6 +38,7 @@ for (var i = 0; i < items.length; i++) {
 				movePlayer = !movePlayer;
 			}
 			
+			// если все еще играем, то ходит бот
 			if(game) {
 				setTimeout(function() {
 					botMove();
@@ -40,7 +50,7 @@ for (var i = 0; i < items.length; i++) {
 }
 
 function botMove() {
-	// чисто на рандоме
+	// чбот ходит рандомно
 	var items = document.querySelectorAll(".app_block:not(.active)");
 
 	var step = getRandomInt(items.length);
@@ -65,6 +75,8 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
 
+
+// проверка ячеек
 function checkMap() {
 	var block = document.querySelectorAll(".app_block");
 	var items = [];
@@ -94,6 +106,7 @@ function checkMap() {
 	return {val: false}
 }
 
+// выход/перезагрузка
 function exit(obj) {
 	alert(obj.win + " - game over");
 	location.reload();

@@ -10,7 +10,6 @@ const app = new PIXI.Application({
 });
 document.body.appendChild(app.view);
 
-const texture = new PIXI.Texture.fromImage("images/bg.png");
 let wrapper = new PIXI.Container();
 app.stage.addChild(wrapper);
 
@@ -18,7 +17,6 @@ for (let i = 0; i < 9; i++) {
     let container = new PIXI.Container();
 	let block = new PIXI.TilingSprite( PIXI.Texture.from("images/bg.png") , 240, 130);
     
-	//block.anchor.set(0.5);
 	container.x = (i % 3) * 240;
     container.y = Math.floor(i / 3) * 130;
     container.addChild(block);
