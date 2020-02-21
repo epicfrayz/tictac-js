@@ -1,0 +1,46 @@
+* {
+	box-sizing: border-box;
+}
+html, body {
+	height: 100%;
+	background-color: #4d5258;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.app {
+	width: 640px;
+	height: 480px;
+
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.app_block {
+	border: 2px solid #000;
+	width: 200px;
+	height: 130px;
+	cursor: pointer;
+
+	font-size: 60px;
+	font-family: sans-serif;
+	font-weight: bold;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background-color: #202328;
+	border-radius: 10px;
+}
+.app_block.active {
+	cursor: default;
+}
+.app_block.active.active_o {
+		color: #e2e3e8;
+}
+.app_block.active.active_x {
+	color: #d64c42;
+}
